@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const PORT = 9000;
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://tasks33-r2ri.vercel.app", credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 
