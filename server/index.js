@@ -35,7 +35,6 @@ app.get("/get-cookie", (req, res) => {
 });
 
 
-
 app.get("/response/200", (req, res) => res.status(200).json({ message: "OK" }));
 app.get("/response/201", (req, res) =>
   res.status(201).json({ message: "Created" })
