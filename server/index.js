@@ -7,15 +7,15 @@ const PORT = 9000;
 
 app.use(
   cors({
-    origin: "https://tasks33-r2ri.vercel.app", // Update with your deployed frontend URL
-    credentials: true, // Allow credentials
+    origin: "https://tasks33-r2ri.vercel.app", 
+    credentials: true, 
   })
 );
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   next();
+// });
 
 app.use(cookieParser());
 app.use(express.json());
