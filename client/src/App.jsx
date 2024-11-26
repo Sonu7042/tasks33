@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const host = "http://localhost:9000";
-// const host= "https://tasks33.vercel.app"
+// const host = "http://localhost:9000";
+const host = "https://tasks33.vercel.app";
 
 function App() {
   const [cookie, setCookie] = useState(null);
@@ -39,22 +39,28 @@ function App() {
   return (
     <>
       <div className="cookieDiv">
-        <h1 style={{textAlign:"center"}}>Cookie and Response </h1>
+        <h1 style={{ textAlign: "center" }}>Cookie and Response </h1>
         <button onClick={setCookieHandler}>Set Cookie</button>
         <button onClick={getCookieHandler}>Get Cookie</button>
-        {cookie && <p style={{margin:"0 10px", fontSize:"20px"}}>Retrieved Cookie: {cookie}</p>}
-
-      
+        {cookie && (
+          <p style={{ margin: "0 10px", fontSize: "20px" }}>
+            Retrieved Cookie: {cookie}
+          </p>
+        )}
       </div>
 
       <div className="codeDiv">
-        <h2 style={{textAlign:"center"}}>Response Codes</h2>
+        <h2 style={{ textAlign: "center" }}>Response Codes</h2>
         <button onClick={() => fetchResponse(200)}>Fetch 200</button>
         <button onClick={() => fetchResponse(201)}>Fetch 201</button>
         <button onClick={() => fetchResponse(400)}>Fetch 400</button>
         <button onClick={() => fetchResponse(404)}>Fetch 404</button>
         <button onClick={() => fetchResponse(500)}>Fetch 500</button>
-        {responseData && <p style={{margin:"0 10px", fontSize:"20px"}}>Response: {responseData}</p>}
+        {responseData && (
+          <p style={{ margin: "0 10px", fontSize: "20px" }}>
+            Response: {responseData}
+          </p>
+        )}
       </div>
     </>
   );

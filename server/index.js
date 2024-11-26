@@ -5,17 +5,25 @@ const cors = require("cors");
 const app = express();
 const PORT = 9000;
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true, }));
+app.use(
+  cors({
+    origin: "https://tasks33-r2ri.vercel.app", // Update with your deployed frontend URL
+    credentials: true, // Allow credentials
+  })
+);
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
 app.use(cookieParser());
 app.use(express.json());
 
-
-
 app.get("/set-cookie", (req, res) => {
-  res.cookie("name", "sonusingh", { httpOnly: true, sameSite:"none", secure:true });
+  res.cookie("name", "sonusingh", { httpOnly: true, sameSite: "none", secure: true });
   res.status(200).json({ message: "Cookie has been set" });
 });
-
 
 app.get("/get-cookie", (req, res) => {
   const cookie = req.cookies.name;
@@ -25,6 +33,7 @@ app.get("/get-cookie", (req, res) => {
     res.status(404).json({ message: "Cookie not found" });
   }
 });
+
 
 
 app.get("/response/200", (req, res) => res.status(200).json({ message: "OK" }));
